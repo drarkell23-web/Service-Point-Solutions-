@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard – Service Point Solutions</title>
+<link rel="stylesheet" href="css/admin-dashboard.css">
+<script src="../main.js"></script>
+</head>
+
+<body>
+
+<div class="admin-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <button onclick="showSection('contractors')">Contractors</button>
+        <button onclick="showSection('leads')">Leads</button>
+        <button onclick="showSection('reviews')">Reviews</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main class="panel">
+
+        <!-- CONTRACTORS -->
+        <section id="contractors" class="section">
+            <h1>Contractors</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Service</th>
+                        <th>Premium</th>
+                    </tr>
+                </thead>
+                <tbody id="contractorList"></tbody>
+            </table>
+        </section>
+
+        <!-- LEADS -->
+        <section id="leads" class="section hidden">
+            <h1>Leads</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Service</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="leadList"></tbody>
+            </table>
+        </section>
+
+        <!-- REVIEWS -->
+        <section id="reviews" class="section hidden">
+            <h1>Reviews</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contractor</th>
+                        <th>Reviewer</th>
+                        <th>Rating</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewList"></tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

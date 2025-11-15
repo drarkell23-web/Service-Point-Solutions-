@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contractor Dashboard – Service Point Solutions</title>
+<link rel="stylesheet" href="css/contractor-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Contractor Panel</h2>
+        <button onclick="showSection('overview')">Overview</button>
+        <button onclick="showSection('profile')">My Profile</button>
+        <button onclick="showSection('leads')">My Leads</button>
+        <button onclick="showSection('reviews')">My Reviews</button>
+        <button class="logout" onclick="logout()">Logout</button>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main class="panel">
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="section">
+            <h1>Overview</h1>
+            <div class="stats">
+                <div class="card">
+                    <h3>Total Leads</h3>
+                    <p id="totalLeads">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Reviews</h3>
+                    <p id="totalReviews">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Rating</h3>
+                    <p id="rating">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE SETTINGS -->
+        <section id="profile" class="section hidden">
+            <h1>My Profile</h1>
+
+            <div class="profile-box">
+                <label>Company Name</label>
+                <input id="company_name" type="text">
+
+                <label>Your Name</label>
+                <input id="name" type="text">
+
+                <label>Email</label>
+                <input id="email" type="text">
+
+                <label>Phone</label>
+                <input id="phone" type="text">
+
+                <label>Primary Service</label>
+                <input id="service" type="text">
+
+                <label>Telegram Bot Token</label>
+                <input id="telegram_token" type="text">
+
+                <label>Telegram Chat ID</label>
+                <input id="telegram_chat_id" type="text">
+
+                <label>Upload Logo</label>
+                <input id="logo" type="file" accept="image/*">
+
+                <button onclick="saveProfile()">Save Changes</button>
+            </div>
+        </section>
+
+        <!-- LEADS -->
+        <section id="leads" class="section hidden">
+            <h1>My Leads</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Service</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="leadList"></tbody>
+            </table>
+        </section>
+
+        <!-- REVIEWS -->
+        <section id="reviews" class="section hidden">
+            <h1>My Reviews</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reviewer</th>
+                        <th>Rating</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewList"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/contractor-dashboard.js"></script>
+</body>
+</html>

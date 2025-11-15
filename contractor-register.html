@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contractor Sign-Up – Service Point Solutions</title>
+
+<style>
+body {
+    background: #f5f6fa;
+    font-family: Arial, sans-serif;
+}
+.register-box {
+    width: 420px;
+    padding: 30px;
+    margin: 80px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+label {
+    font-weight: bold;
+    display: block;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: #1a4dff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover {
+    background: #0d2bbb;
+}
+</style>
+
+</head>
+<body>
+
+<div class="register-box">
+    <h2>Contractor Sign-Up</h2>
+
+    <label>Company Name</label>
+    <input id="company_name" type="text">
+
+    <label>Your Name</label>
+    <input id="name" type="text">
+
+    <label>Email</label>
+    <input id="email" type="text">
+
+    <label>Phone</label>
+    <input id="phone" type="text">
+
+    <label>Password</label>
+    <input id="password" type="password">
+
+    <label>Primary Service</label>
+    <input id="service" type="text">
+
+    <label>Telegram Bot Token (optional)</label>
+    <input id="telegram_token" type="text">
+
+    <label>Telegram Chat ID (optional)</label>
+    <input id="telegram_chat_id" type="text">
+
+    <button onclick="register()">Create Account</button>
+</div>
+
+<script>
+async function register() {
+    const data = {
+        company_name: document.getElementById("company_name").value.trim(),
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        password: document.getElementById("password").value.trim(),
+        service: document.getElementById("service").value.trim(),
+        telegram_token: document.getElementById("telegram_token").value.trim(),
+        telegram_chat_id: document.getElementById("telegram_chat_id").value.trim()
+    };
+
+    if (!data.name || !data.company_name || !data.email || !data.phone || !data.password) {
+        return alert("Please complete all required fields.");
+    }
+
+    const res = await fetch("/api/contractor", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+    });
+
+    const json = await res.json();
+
+    if (!json.ok) return alert("Error: " + json.error);
+
+    alert("Account created! You can now log in.");
+    window.location.href = "/contractor-login";
+}
+</script>
+
+</body>
+</html>

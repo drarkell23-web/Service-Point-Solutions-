@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Service Point Solutions</title>
+<link rel="stylesheet" href="main.css" />
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f5f7fa;
+    }
+
+    /* TOP NAV */
+    .topnav {
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 15px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-left {
+        font-size: 22px;
+        font-weight: 800;
+        color: #1a4dff;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .nav-btn {
+        text-decoration: none;
+        padding: 8px 14px;
+        background: #f3f4f6;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #111827;
+        border: 1px solid #e5e7eb;
+        transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+        background: #e8ebf0;
+    }
+
+    .nav-primary {
+        background: #2563eb;
+        color: #fff !important;
+        border: none;
+    }
+    .nav-primary:hover {
+        opacity: 0.9;
+    }
+
+    /* LAYOUT */
+    .app-shell {
+        display: flex;
+        margin-top: 70px;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        width: 260px;
+        background: #ffffff;
+        height: calc(100vh - 70px);
+        border-right: 1px solid #e5e7eb;
+        padding: 20px;
+        position: fixed;
+        overflow-y: auto;
+    }
+
+    .sidebar h3 {
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #1a1a1a;
+    }
+
+    .category-buttons .category-btn {
+        width: 100%;
+        background: #eef2ff;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccd5ff;
+        margin-bottom: 10px;
+        cursor: pointer;
+        text-align: left;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .category-buttons .category-btn:hover {
+        background: #dce4ff;
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+        margin-left: 280px;
+        padding: 30px;
+        width: calc(100% - 280px);
+    }
+
+    .container {
+        max-width: 900px;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    button {
+        background: #2244ff;
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #1022aa;
+    }
+
+    /* SERVICES SECTION */
+    .category-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #222;
+    }
+
+    .service-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .service-item {
+        background: #eef2ff;
+        padding: 10px 14px;
+        border-radius: 6px;
+        border: 1px solid #ccd5ff;
+        cursor: pointer;
+        transition: 0.2s;
+        font-size: 14px;
+    }
+
+    .service-item:hover {
+        background: #dce4ff;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- TOP NAV -->
+<header class="topnav">
+    <div class="nav-left">Service Point Solutions</div>
+    <div class="nav-right">
+        <a href="/contractor-login" class="nav-btn">Contractor Login</a>
+        <a href="/contractor-register" class="nav-btn nav-primary">Contractor Sign-Up</a>
+        <a href="/admin-login" class="nav-btn">Admin</a>
+    </div>
+</header>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h3>Categories</h3>
+        <div id="categoryButtons" class="category-buttons"></div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+
+            <h2>Request a Service</h2>
+
+            <input id="fullName" type="text" placeholder="Full name">
+            <input id="phone" type="text" placeholder="Phone">
+            <input id="email" type="text" placeholder="Email (optional)">
+
+            <select id="serviceSelect"><option value="">Select Service</option></select>
+
+            <textarea id="message" placeholder="Describe the issue"></textarea>
+
+            <button onclick="sendLead()">Send Request</button>
+
+            <h2 style="margin-top:40px;">Available Services</h2>
+            <div id="serviceContainer"></div>
+
+        </div>
+    </main>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

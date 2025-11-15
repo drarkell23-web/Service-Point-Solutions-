@@ -1,0 +1,89 @@
+/* ================================
+   ADMIN DASHBOARD CSS
+================================ */
+
+body {
+    margin: 0;
+    background: #f5f6fa;
+    font-family: Arial, sans-serif;
+}
+
+.admin-shell {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: #1a4dff;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: #1a4dff;
+    border-radius: 6px;
+}
+
+.sidebar button:hover {
+    background: #dce4ff;
+}
+
+.sidebar .logout {
+    background: #ff4d4d;
+    color: white;
+}
+
+.sidebar .logout:hover {
+    background: #d32f2f;
+}
+
+/* PANEL */
+.panel {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    text-align: left;
+    background: #f0f0f0;
+}
+
+tr:hover {
+    background: #fafafa;
+}
+
+.hidden {
+    display: none;
+}
